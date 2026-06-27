@@ -17,13 +17,13 @@ Algoritmo Ejercicio1
 	
 	Escribir "¡FELICITACIONES, TIENES UN DESCUENTO DEL ", porcentajeDescuento,"% en un producto!"
 
-	Mientras Salir = Falso 
+	Repetir 
 		esNumeroValido <- Verdadero
 		
 		Escribir "------------------------------------------------------------"
 		Escribir "Ingresa el precio del producto (o exit para salir):"
 		Leer precioProducto
-
+		
 		Si precioProducto = "exit" 
             Salir <- Verdadero
             Escribir "Saliendo del programa..."
@@ -58,17 +58,17 @@ Algoritmo Ejercicio1
                 FinSi
 			FinSi
 			
-				Si esNumeroValido = Falso 
-					Escribir "ERROR: Solo se aceptan valores numericos superiores a 0 y de máximo 10 digitos..."
-				SiNo
-						valorDescontar <- Convertiranumero(precioProducto) * porcentajeDescuento / 100
-						PrecioFinal <- ConvertirANumero(precioProducto) - valorDescontar
-						
-						Escribir "El precio de tu producto es de: ", precioProducto, "$"
-						Escribir "Se te descontará un total de: ", valorDescontar, "$"
-						Escribir "---------------------------------------------------"
-						EScribir "¡El precio final a pagar es de solo ", precioFinal, "$!"
-				FinSi
+			Si esNumeroValido = Falso 
+				Escribir "ERROR: Solo se aceptan valores numericos superiores a 0 y de máximo 10 digitos..."
+			SiNo
+				valorDescontar <- Convertiranumero(precioProducto) * porcentajeDescuento / 100
+				PrecioFinal <- ConvertirANumero(precioProducto) - valorDescontar
+				
+				Escribir "El precio de tu producto es de: ", precioProducto, "$"
+				Escribir "Se te descontará un total de: ", valorDescontar, "$"
+				Escribir "---------------------------------------------------"
+				EScribir "¡El precio final a pagar es de solo ", precioFinal, "$!"
+			FinSi
 		FinSi
-	FinMientras
+	Hasta Que Salir = Verdadero
 FinAlgoritmo
