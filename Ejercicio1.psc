@@ -28,17 +28,26 @@ Algoritmo Ejercicio1
             Salir <- Verdadero
             Escribir "Saliendo del programa..."
         SiNo            
-            Si Longitud(precioProducto) = 0 O Longitud(precioProducto) > maxLong
+            Si Longitud(precioProducto) = 0 O Longitud(precioProducto) > maxLong o precioProducto = "."
                 esNumeroValido <- Falso
             SiNo
                 
                 i <- 1
+				conPunto <- 0
                 Mientras i <= Longitud(precioProducto) Y esNumeroValido = Verdadero
                     caracterActual <- SubCadena(precioProducto, i, i)
 					
-                    Si (caracterActual < "0" O caracterActual > "9")
-                        esNumeroValido <- Falso
-                    FinSi
+					Si caracterActual = "."
+						conPunto = conPunto + 1
+						si conPunto = 2
+							esNumeroValido = Falso
+						FinSi
+					SiNo
+						Si (caracterActual < "0" O caracterActual > "9")
+							esNumeroValido <- Falso
+						FinSi
+					FinSi
+					
                     i <- i + 1
                 FinMientras
                 
@@ -50,7 +59,7 @@ Algoritmo Ejercicio1
 			FinSi
 			
 				Si esNumeroValido = Falso 
-					Escribir "ERROR: Solo se aceptan valores numericos enteros superiores a 0 y de máximo 10 digitos..."
+					Escribir "ERROR: Solo se aceptan valores numericos superiores a 0 y de máximo 10 digitos..."
 				SiNo
 						valorDescontar <- Convertiranumero(precioProducto) * porcentajeDescuento / 100
 						PrecioFinal <- ConvertirANumero(precioProducto) - valorDescontar
